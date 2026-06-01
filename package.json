@@ -6,17 +6,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.2.1",
-    "vite": "^7.2.4"
+    "jsdom": "^25.0.1",
+    "vite": "^7.2.4",
+    "vitest": "^2.1.9"
   },
   "dependencies": {
     "@mozilla/readability": "^0.6.0",
+    "jszip": "^3.10.1",
     "turndown": "^7.2.2",
     "turndown-plugin-gfm": "^1.0.2"
   }

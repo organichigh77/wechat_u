@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>深入理解 Rust 异步运行时</title>
+  <script nonce="x">
+    var biz = "MzStandard==" || "";
+    var mid = "2247500001" || "";
+    var idx = "1" || "";
+    var sn = "stdsn123" || "";
+    var ct = "1714500000" || "";
+    var nickname = "技术美学" || "";
+    var user_name = "gh_standard001" || "";
+    var msg_title = "深入理解 Rust 异步运行时" || "";
+    var msg_desc = "从 Future 到 executor,系统梳理 Rust 异步模型的设计取舍。" || "";
+    var msg_cdn_url = "https://mmbiz.qpic.cn/cover/standard_cover.jpg?wx_fmt=jpeg" || "";
+    var ori_head_img_url = "https://mmbiz.qpic.cn/avatar/standard_avatar.png?wx_fmt=png" || "";
+    var copyright_stat = 11;
+    var is_only_read = 1;
+    var appmsg_type = "9";
+  </script>
+</head>
+<body>
+  <div id="img-content" class="rich_media_content">
+    <h1 id="activity-name">深入理解 Rust 异步运行时</h1>
+    <div id="meta_content">
+      <span id="js_name">技术美学</span>
+      <span id="js_author_name">张三</span>
+      <em id="publish_time">2024-05-01</em>
+    </div>
+    <div id="js_content">
+      <p>Rust 的异步模型常被认为难懂,核心原因在于它把「异步」拆成了几个彼此独立又必须协同的概念:Future、executor、reactor 与 waker。理解了它们各自的职责,异步代码就不再是黑盒。</p>
+      <p>Future 本身只是一个状态机。它不会主动运行,只有被 poll 时才推进一步。每次 poll 要么返回 Ready 带上结果,要么返回 Pending 并登记一个 waker,等待外部事件就绪后再被唤醒。这种「拉模型」让 Rust 在没有 GC 的前提下实现了零成本抽象的异步。</p>
+      <h2>executor 的角色</h2>
+      <p>executor 负责调度 Future:它持有一组任务,反复 poll 那些被标记为 ready 的任务,直到它们全部完成。Tokio、async-std 等运行时都是 executor 的具体实现,它们在 executor 之外还集成了 reactor,把操作系统的 I/O 事件转化为 waker 唤醒信号。</p>
+      <p>这里的关键设计取舍是:标准库只定义了 Future trait 与最小的 task 接口,把 executor 的实现完全交给生态。好处是灵活,代价是初学者要面对多个互不兼容的运行时。理解这一分层,才能解释为什么同样的 async fn 在不同运行时里行为会有差异。</p>
+      <p><img data-src="https://mmbiz.qpic.cn/article/rust_async_diagram.png?wx_fmt=png" src="data:image/gif;base64,placeholder" style="width:100%" class="lazy" alt="异步运行时分层图"></p>
+      <p>总结来说,Rust 异步的复杂度不是偶然的,而是「无运行时、零成本、可组合」三个目标共同作用的结果。一旦把 Future、executor、reactor、waker 的边界理清,绝大多数异步报错都能被快速定位。</p>
+      <p>04</p>
+      <p>扫描二维码关注我们</p>
+      <p>欢迎加入读者群,长按识别下方二维码。</p>
+    </div>
+  </div>
+  <div id="js_pc_qr_code" class="qr_code_pc">二维码区域</div>
+</body>
+</html>

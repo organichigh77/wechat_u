@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>用 Rust 写一个最小 CLI</title>
+  <script nonce="x">
+    var biz = "MzCode==" || "";
+    var mid = "2247500002" || "";
+    var idx = "1" || "";
+    var sn = "codesn" || "";
+    var ct = "1714600000" || "";
+    var nickname = "代码笔记" || "";
+    var msg_title = "用 Rust 写一个最小 CLI" || "";
+    var copyright_stat = 100;
+    var is_only_read = 0;
+  </script>
+</head>
+<body>
+  <div class="rich_media_content">
+    <h1 id="activity-name">用 Rust 写一个最小 CLI</h1>
+    <span id="js_name">代码笔记</span>
+    <div id="js_content">
+      <p>下面这个例子展示了一个最小可运行的 Rust 命令行程序。它读取一个参数并打印问候语,虽然简单,却涵盖了入口函数、标准库导入和参数解析这几个基础点,适合作为第一个练手项目。</p>
+      <pre class="code-snippet__fix code-snippet"><code>use std::env;<br>
+fn main() {<br>
+    let args: Vec&lt;String&gt; = env::args().collect();<br>
+    let name = args.get(1).map(|s| s.as_str()).unwrap_or("world");<br>
+    println!("Hello, {}!", name);<br>
+}</code></pre>
+      <p>编译运行后,执行 <code>cargo run -- Alice</code> 就会打印 Hello, Alice!。把参数省略时则回退到默认的 world。这个回退逻辑用 unwrap_or 一行完成,体现了 Rust 处理可选值时的简洁。</p>
+      <p>从这里出发,你可以逐步加入子命令、错误处理和配置文件读取,演化成一个真正实用的工具。下一篇我们会引入 clap 来做更完善的参数解析。</p>
+    </div>
+  </div>
+</body>
+</html>

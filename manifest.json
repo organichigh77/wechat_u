@@ -14,7 +14,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://mp.weixin.qq.com/s*"
+                "https://mp.weixin.qq.com/*"
             ],
             "js": [
                 "src/content/index.js"
